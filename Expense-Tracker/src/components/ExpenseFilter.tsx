@@ -1,5 +1,5 @@
 import React from "react";
-import { categories } from "../App";
+import categories from "./data/category";
 interface Props {
   onSelectedCategory: (category: string) => void;
 }
@@ -10,9 +10,11 @@ const ExpenseFilter = ({ onSelectedCategory }: Props) => {
         className="form-select"
         onChange={(event) => onSelectedCategory(event.target.value)}
       >
-        <option value="">All Category</option>
+        <option value="">All Categories</option>
         {categories.map((category) => (
-          <option value={category}>{category}</option>
+          <option key={category} value={category}>
+            {category}
+          </option>
         ))}
       </select>
     </>
